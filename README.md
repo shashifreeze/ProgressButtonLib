@@ -17,6 +17,20 @@ There are two buttons this library provides
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/30362030/134495090-4e304afc-a9f8-4362-97bc-8c5c8f16bd36.gif)
 
 
+Add it in your root build.gradle(project level) at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency(Add to app level build.gradle file)
+
+	dependencies {
+	        implementation 'com.github.shashifreeze:ProgressButtonLib:Tag'
+	}
+
 Attributes for ProgressButton are:
 
 ```XML
