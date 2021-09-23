@@ -13,4 +13,14 @@
         <attr name="pb_text_gravity" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="ProgressLoadingButtonAttr">
+        <attr name="plb_text_color" format="color|reference" />
+        <attr name="plb_start_bg_color" format="color|reference" />
+        <attr name="plb_progress_color" format="color|reference" />
+        <attr name="plb_text_size" format="dimension|reference" />
+        <attr name="plb_before_progress_text" format="string" />
+        <attr name="plb_after_progress_text" format="string" />
+        <attr name="plb_text_gravity" format="integer"/>
+    </declare-styleable>
+
 </resources>

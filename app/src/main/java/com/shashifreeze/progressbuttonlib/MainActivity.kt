@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.CalendarContract
 import com.shashifreeze.progressbutton.ProgressButton
+import com.shashifreeze.progressbutton.ProgressLoadingButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +19,18 @@ class MainActivity : AppCompatActivity() {
             Handler(mainLooper).postDelayed(
                 {
                     pBtn.stopProgress("Logged In")
+
+                }, 1000
+            )
+        }
+
+        val plBtn = findViewById<ProgressLoadingButton>(R.id.plb_btn)
+        plBtn.setOnClickListener {
+
+            plBtn.startProgress(bgColor = Color.YELLOW)
+            Handler(mainLooper).postDelayed(
+                {
+                    plBtn.stopProgress("Completed")
 
                 }, 1000
             )

@@ -7,11 +7,13 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.animation.Animation
 import android.widget.ProgressBar
 import android.widget.TextView
+import com.google.android.material.animation.AnimationUtils
 import com.google.android.material.card.MaterialCardView
 
-class ProgressButton @JvmOverloads constructor(
+class ProgressLoadingButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -27,7 +29,6 @@ class ProgressButton @JvmOverloads constructor(
      */
     private var progressColor = 0
     private var beforeProgressText = "Button"
-    private var onProgressText = "Please wait..."
     private var afterProgressText = "Done"
     private var btnTextSize = 0f
     private var textGravity = 0
@@ -36,52 +37,48 @@ class ProgressButton @JvmOverloads constructor(
 
     init {
 
-        LayoutInflater.from(getContext()).inflate(R.layout.progress_button_layout, this, true)
+        LayoutInflater.from(getContext()).inflate(R.layout.progress_loading_button_layout, this, true)
         buttonTextView = findViewById(R.id.buttonText)
         buttonProgressbar = findViewById(R.id.buttonProgress)
        // buttonCardViewLayout = findViewById(R.id.buttonCardViewLayout)
 
         val typedArray = context.theme.obtainStyledAttributes(
             attrs,
-            R.styleable.ProgressButtonAttr,
+            R.styleable.ProgressLoadingButtonAttr,
             defStyleAttr,
             defStyleAttr
         )
 
-        typedArray.getString(R.styleable.ProgressButtonAttr_pb_before_progress_text)?.let {
+        typedArray.getString(R.styleable.ProgressLoadingButtonAttr_plb_before_progress_text)?.let {
             beforeProgressText = it
         }
 
-        typedArray.getString(R.styleable.ProgressButtonAttr_pb_after_progress_text)?.let {
+        typedArray.getString(R.styleable.ProgressLoadingButtonAttr_plb_after_progress_text)?.let {
             afterProgressText = it
         }
 
-        typedArray.getString(R.styleable.ProgressButtonAttr_pb_on_progress_text)?.let {
-            onProgressText = it
-        }
-
-        typedArray.getDimension(R.styleable.ProgressButtonAttr_pb_text_size,20f).let {
+        typedArray.getDimension(R.styleable.ProgressLoadingButtonAttr_plb_text_size,20f).let {
             btnTextSize = it
         }
 
-        typedArray.getDimension(R.styleable.ProgressButtonAttr_pb_text_size,20f).let {
+        typedArray.getDimension(R.styleable.ProgressLoadingButtonAttr_plb_text_size,20f).let {
             btnTextSize = it
         }
 
-        typedArray.getInteger(R.styleable.ProgressButtonAttr_pb_text_gravity,Gravity.CENTER).let {
+        typedArray.getInteger(R.styleable.ProgressLoadingButtonAttr_plb_text_gravity,Gravity.CENTER).let {
             textGravity = it
         }
 
-        typedArray.getColor(R.styleable.ProgressButtonAttr_pb_start_bg_color,Color.BLUE).let {
+        typedArray.getColor(R.styleable.ProgressLoadingButtonAttr_plb_start_bg_color,Color.BLUE).let {
             startProgressBgColor = it
         }
 
-        typedArray.getColor(R.styleable.ProgressButtonAttr_pb_progress_color,Color.WHITE).let {
+        typedArray.getColor(R.styleable.ProgressLoadingButtonAttr_plb_progress_color,Color.WHITE).let {
             progressColor = it
         }
 
          btnTextColor = typedArray.getColor(
-            R.styleable.ProgressButtonAttr_pb_text_color,
+            R.styleable.ProgressLoadingButtonAttr_plb_text_color,
             Color.WHITE
         )
 
@@ -99,12 +96,11 @@ class ProgressButton @JvmOverloads constructor(
         }
         buttonProgressbar?.indeterminateTintList = ColorStateList.valueOf(progressColor)
 
-
     }
 
-     fun startProgress(progressText:String = onProgressText, bgColor:Int =startProgressBgColor   ) {
+     fun startProgress( bgColor:Int =startProgressBgColor   ) {
 
-        buttonTextView?.text = progressText
+        buttonTextView?.visibility = View.GONE
         buttonProgressbar?.visibility =  View.VISIBLE
         isEnabled = false
          setCardBackgroundColor(bgColor)
@@ -114,11 +110,11 @@ class ProgressButton @JvmOverloads constructor(
      fun stopProgress(afterText:String = afterProgressText, bgColor:Int = Color.GREEN ) {
 
         buttonTextView?.text = afterText
+         buttonTextView?.visibility = View.VISIBLE
         buttonProgressbar?.visibility =  View.GONE
         isEnabled = true
          setCardBackgroundColor(bgColor)
          stopAnimation()
-
     }
 
     private fun startAnimation()
