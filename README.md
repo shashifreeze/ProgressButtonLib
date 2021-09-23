@@ -27,8 +27,10 @@ Add it in your root build.gradle(project level) at the end of repositories:
 	}
 Step 2. Add the dependency(Add to app level build.gradle file)
 
+[![](https://jitpack.io/v/shashifreeze/ProgressButtonLib.svg)](https://jitpack.io/#shashifreeze/ProgressButtonLib)
+
 	dependencies {
-	        implementation 'com.github.shashifreeze:ProgressButtonLib:Tag'
+	        implementation 'com.github.shashifreeze:ProgressButtonLib:v1.0.0'
 	}
 
 Attributes for ProgressButton are:
