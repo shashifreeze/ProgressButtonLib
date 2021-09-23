@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <declare-styleable name="ProgressButtonAttr">
+        <attr name="pb_text_color" format="color|reference" />
+        <attr name="pb_start_bg_color" format="color|reference" />
+        <attr name="pb_progress_color" format="color|reference" />
+        <attr name="pb_text_size" format="dimension|reference" />
+        <attr name="pb_before_progress_text" format="string" />
+        <attr name="pb_on_progress_text" format="string" />
+        <attr name="pb_after_progress_text" format="string" />
+        <attr name="pb_text_gravity" format="integer"/>
+    </declare-styleable>
+
+</resources>

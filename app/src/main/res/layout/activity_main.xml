@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.shashifreeze.progressbutton.ProgressButton
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:id="@+id/pb"
+        android:gravity="center"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="6dp"
+        app:pb_text_color = "@color/white"
+        app:pb_text_gravity = "1"
+        app:pb_progress_color = "@color/white"
+        app:pb_text_size = "6sp"
+        app:pb_before_progress_text = "@string/app_name"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
