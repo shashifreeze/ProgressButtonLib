@@ -71,7 +71,7 @@ Add in yout activity or fragment XML layout file:
         app:cardCornerRadius="6dp"
         app:pb_text_color = "@color/white"
         app:pb_text_gravity = "1"
-        app:plb_text_size = "6sp"
+        app:pb_text_size = "6sp"
         app:pb_progress_color = "@color/white"
         app:pb_before_progress_text = "ProgressButton"
         android:layout_height="wrap_content" />
