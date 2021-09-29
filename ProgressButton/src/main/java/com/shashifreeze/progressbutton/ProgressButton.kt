@@ -134,4 +134,9 @@ class ProgressButton @JvmOverloads constructor(
         buttonProgressbar?.animation = anim
     }
 
+    fun setButtonText(text:String)
+    {
+        buttonTextView?.text= text
+    }
+
 }

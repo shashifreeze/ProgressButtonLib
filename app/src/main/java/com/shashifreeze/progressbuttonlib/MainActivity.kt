@@ -30,8 +30,7 @@ class MainActivity : AppCompatActivity() {
             plBtn.startProgress(bgColor = Color.YELLOW)
             Handler(mainLooper).postDelayed(
                 {
-                    plBtn.stopProgress("Completed")
-
+                    plBtn.stopProgress("Completed",Color.BLUE)
                 }, 1000
             )
         }
